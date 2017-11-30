@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`serveSchema mutate add()  1`] = `
+Object {
+  "add": 12,
+}
+`;
+
+exports[`serveSchema query echo() 1`] = `
+Object {
+  "echo": "Hello, Bob! Message is \\"is jumping!\\"",
+}
+`;

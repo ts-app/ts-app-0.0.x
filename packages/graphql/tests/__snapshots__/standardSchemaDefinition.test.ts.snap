@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`standardSchemaDefinition works 1`] = `
+Object {
+  "Date": "Date",
+}
+`;
+
+exports[`standardSchemaDefinition works 2`] = `"scalar Date"`;

@@ -1,0 +1,113 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ResolverService ServiceInfo support 1`] = `"Hello, Bob! Message is \\"Up! Up! Up!\\" - from echo2"`;
+
+exports[`ResolverService composeResolver() with paramNames 1`] = `"Hello, Alice! Message is \\"Wassup!\\""`;
+
+exports[`ResolverService makeResolvers() - resolvers are usable 1`] = `"Hello, Alice! Message is \\"Wassup!\\""`;
+
+exports[`ResolverService makeResolvers() 1`] = `
+Object {
+  "Mutation": Object {
+    "add": [Function],
+    "promiseToSubtract": [Function],
+  },
+  "Query": Object {
+    "echo": [Function],
+    "echo2": [Function],
+    "throwSomeError": [Function],
+  },
+}
+`;
+
+exports[`ResolverService registerAfterware() works 1`] = `
+Array [
+  "after-1",
+  "after-2",
+]
+`;
+
+exports[`ResolverService registerBeforeware() works 1`] = `
+Array [
+  Object {
+    "args": Object {
+      "howMany": 3,
+    },
+    "context": Object {},
+    "info": Object {},
+    "metadata": Object {
+      "auth": Array [],
+      "className": "DemoService",
+      "functionName": "add",
+      "resolverName": "",
+      "type": "query",
+    },
+    "obj": Object {},
+    "user": null,
+  },
+  "beforeware 1 was called",
+]
+`;
+
+exports[`ResolverService registerResolver() 1`] = `
+Object {
+  "add": Object {
+    "auth": Array [],
+    "descriptor": Object {
+      "configurable": true,
+      "enumerable": true,
+      "value": [Function],
+      "writable": true,
+    },
+    "name": null,
+    "paramNames": null,
+    "queryType": "mutation",
+  },
+  "echo": Object {
+    "auth": Array [],
+    "descriptor": Object {
+      "configurable": true,
+      "enumerable": true,
+      "value": [Function],
+      "writable": true,
+    },
+    "name": null,
+    "paramNames": Array [
+      "name",
+      "message",
+    ],
+    "queryType": "query",
+  },
+  "promiseToSubtract": Object {
+    "auth": Array [],
+    "descriptor": Object {
+      "configurable": true,
+      "enumerable": true,
+      "value": [Function],
+      "writable": true,
+    },
+    "name": null,
+    "paramNames": null,
+    "queryType": "mutation",
+  },
+  "throwSomeError": Object {
+    "auth": Array [],
+    "descriptor": Object {
+      "configurable": true,
+      "enumerable": true,
+      "value": [Function],
+      "writable": true,
+    },
+    "name": null,
+    "paramNames": null,
+    "queryType": "query",
+  },
+}
+`;
+
+exports[`ResolverService registerService() 1`] = `
+DemoService {
+  "anotherNumber": 123,
+  "count": 0,
+}
+`;

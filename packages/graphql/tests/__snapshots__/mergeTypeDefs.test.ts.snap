@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`mergeTypeDefs no Query/Mutation (only scalar types) 1`] = `
+"type Mutation {
+
+}
+type Query {
+
+}
+scalar Date
+scalar Book"
+`;
+
+exports[`mergeTypeDefs nothing to merge scenario 1`] = `
+"type Mutation {
+
+}
+type Query {
+      echo(name: String): String
+
+    }
+    scalar Book
+
+scalar Date"
+`;
+
+exports[`mergeTypeDefs scalar with query 1`] = `
+"type Mutation {
+
+}
+type Query {
+
+echo(name: String): String}
+scalar Date
+"
+`;
+
+exports[`mergeTypeDefs simple merge 1`] = `
+"type Query {
+echo(name: String): String
+hello: String
+    }
+type Mutation {
+reset: Boolean
+
+}
+"
+`;
+
+exports[`mergeTypeDefs typical scenario 1`] = `
+"scalar Date
+type Query {
+  echo (name: String!, message: String!): String
+users(q: String): UsersPayload
+}
+
+type Mutation {
+  add (howMany: Int): Int
+createUser(username: String): Boolean
+}
+
+
+
+type UsersPayload {
+    error: Date
+    username: [String]
+    # from \\"schema1\\"
+    sampleDate: Date
+}
+
+
+
+scalar Time"
+`;
+
+exports[`mergeTypeDefs typical scenario 2`] = `"Query"`;
+
+exports[`mergeTypeDefs typical scenario 3`] = `"Mutation"`;

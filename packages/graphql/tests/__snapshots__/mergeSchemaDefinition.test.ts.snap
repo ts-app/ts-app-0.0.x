@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`mergeSchemaDefinition simple merge 1`] = `
+Object {
+  "resolvers": Object {
+    "Date": "Date",
+    "Mutation": Object {
+      "sd2Mutation1": [Function],
+    },
+    "Query": Object {
+      "sd2Query1": [Function],
+    },
+  },
+  "typeDefs": "type Mutation {
+
+mutation1: String
+sd2Mutation1: Boolean}
+type Query {
+
+query1: String
+sd2Query1: Int}
+scalar Date
+
+
+
+
+
+
+
+
+
+",
+}
+`;

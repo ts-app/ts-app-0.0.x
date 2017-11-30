@@ -1,0 +1,52 @@
+{
+  "name": "@ts-app/graphql",
+  "version": "0.0.2",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "license": "MIT",
+  "scripts": {
+    "clean": "rm -fr ./dist",
+    "compile": "tsc -p config/tsconfig-compile.json && cp src/*.graphqls dist",
+    "compile-watch": "tsc -p config/tsconfig-compile.json --watch",
+    "coverage": "jest --config config/jest.config.js --coverage --collectCoverage",
+    "lint": "tslint --project config/tsconfig-test.json",
+    "pack": "npm pack",
+    "prepublishOnly": "npm run lint && npm run compile && npm test",
+    "test": "jest --config config/jest.config.js",
+    "test-watch": "jest --config config/jest.config.js --watch"
+  },
+  "bin": {
+    "ts-app-graphql": "dist/graphql.js"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "apollo-codegen": "^0.17.1",
+    "jest": "^21.2.1",
+    "tslint": "^5.8.0",
+    "typescript": "~2.5"
+  },
+  "dependencies": {
+    "@ts-app/common": "0.0.2",
+    "@ts-app/mongo": "0.0.2",
+    "body-parser": "^1.18.2",
+    "chalk": "^2.3.0",
+    "clear-module": "^2.1.0",
+    "commander": "^2.11.0",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "graphql-server-express": "^1.2.0",
+    "graphql-tag": "^2.5.0",
+    "graphql-tools": "^2.5.1",
+    "graphql-voyager": "^1.0.0-rc.9",
+    "import-fresh": "^2.0.0",
+    "passport": "^0.4.0",
+    "passport-jwt": "^3.0.1"
+  },
+  "peerDependencies": {
+    "graphql": ">= 0.10 < 1",
+    "react": ">= 14",
+    "react-dom": ">= 14"
+  }
+}

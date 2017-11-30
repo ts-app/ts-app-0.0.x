@@ -1,0 +1,9 @@
+type Query {
+  echo (name: String!, message: String!): String
+  throwSomeError: String
+}
+
+type Mutation {
+  add (howMany: Int): Int
+  promiseToSubtract (howMany: Int): Int
+}
