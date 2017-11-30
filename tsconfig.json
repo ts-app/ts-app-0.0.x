@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    "experimentalDecorators": true,
+    "jsx": "react",
+    "lib": [
+      "dom",
+      "es2016",
+      "esnext.asynciterable"
+    ],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "pretty": true,
+    "inlineSourceMap": true,
+    "strict": true,
+    "target": "es5"
+  },
+  "include": [
+    "packages/*/src/**/*",
+    "packages/*/tests/**/*"
+  ]
+}

@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Middleware middleware function can prevent calling subsequent functions 1`] = `
+Array [
+  "first",
+  "second",
+]
+`;

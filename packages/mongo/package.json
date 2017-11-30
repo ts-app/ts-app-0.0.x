@@ -1,0 +1,29 @@
+{
+  "name": "@ts-app/mongo",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "clean": "rm -fr ./dist",
+    "compile": "tsc -p config/tsconfig-compile.json",
+    "compile-watch": "tsc -p config/tsconfig-compile.json --watch",
+    "coverage": "jest --config config/jest.config.js --coverage --collectCoverage",
+    "lint": "tslint --project config/tsconfig-test.json",
+    "pack": "npm pack",
+    "prepublishOnly": "npm run lint && npm run compile && npm test",
+    "test": "jest --config config/jest.config.js --runInBand",
+    "test-watch": "jest --config config/jest.config.js --runInBand --watch"
+  },
+  "devDependencies": {
+    "jest": "^21.2.1",
+    "tslint": "^5.8.0",
+    "typescript": "~2.5"
+  },
+  "peerDependencies": {
+    "mongodb": ">= 2.2 < 3"
+  }
+}
