@@ -1,0 +1,140 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MongoRoleService addUsersToRoles() 1`] = `
+Array [
+  Object {
+    "group": "_global_",
+    "role": "user",
+  },
+  Object {
+    "group": "_global_",
+    "role": "superuser",
+  },
+  Object {
+    "group": "site 1",
+    "role": "user",
+  },
+  Object {
+    "group": "site 1",
+    "role": "superuser",
+  },
+  Object {
+    "group": "site 1",
+    "role": "admin",
+  },
+  Object {
+    "group": "site 2",
+    "role": "user",
+  },
+  Object {
+    "group": "site 2",
+    "role": "admin",
+  },
+  Object {
+    "group": "site 3",
+    "role": "user",
+  },
+  Object {
+    "group": "site 3",
+    "role": "superuser",
+  },
+  Object {
+    "group": "site 3",
+    "role": "admin",
+  },
+  Object {
+    "group": "site 4",
+    "role": "superuser",
+  },
+]
+`;
+
+exports[`MongoRoleService addUsersToRoles() 2`] = `
+Array [
+  Object {
+    "group": "_global_",
+    "role": "user",
+  },
+  Object {
+    "group": "_global_",
+    "role": "superuser",
+  },
+  Object {
+    "group": "_global_",
+    "role": "superadmin",
+  },
+  Object {
+    "group": "_global_",
+    "role": "god",
+  },
+  Object {
+    "group": "site 1",
+    "role": "user",
+  },
+  Object {
+    "group": "site 1",
+    "role": "superuser",
+  },
+  Object {
+    "group": "site 1",
+    "role": "admin",
+  },
+  Object {
+    "group": "site 2",
+    "role": "user",
+  },
+  Object {
+    "group": "site 2",
+    "role": "admin",
+  },
+  Object {
+    "group": "site 3",
+    "role": "user",
+  },
+  Object {
+    "group": "site 3",
+    "role": "superuser",
+  },
+  Object {
+    "group": "site 3",
+    "role": "admin",
+  },
+]
+`;
+
+exports[`MongoRoleService addUsersToRoles() 3`] = `
+Array [
+  Object {
+    "group": "_global_",
+    "role": "user",
+  },
+  Object {
+    "group": "site 1",
+    "role": "user",
+  },
+  Object {
+    "group": "site 1",
+    "role": "admin",
+  },
+  Object {
+    "group": "site 1",
+    "role": "superadmin",
+  },
+  Object {
+    "group": "site 2",
+    "role": "user",
+  },
+  Object {
+    "group": "site 3",
+    "role": "user",
+  },
+  Object {
+    "group": "site 3",
+    "role": "admin",
+  },
+  Object {
+    "group": "site 3",
+    "role": "god",
+  },
+]
+`;

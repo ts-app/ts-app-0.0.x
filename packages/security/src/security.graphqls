@@ -1,0 +1,124 @@
+type Query {
+    user(id: ID!): UserPayload
+    users(q: String, limit: Int, cursor: String): UsersPayload
+}
+
+type Mutation {
+    seedUsers(force: Boolean): NoPayload
+    reset: NoPayload
+    signUp(email: String!, password: String!): SignUpPayload
+    loginWithEmailPassword(email: String!, password: String!): LoginPayload
+    removeUser(id: ID!): NoPayload
+    updateProfile(id: ID!, profile: ProfileInput!): NoPayload
+    setProfile(id:ID!, profile: ProfileInput!): NoPayload
+    updateUser(id: ID!, user: UserInput!): UserPayload
+}
+
+input UserInput {
+    emails: [EmailInput]
+    services: [UserServiceInput]
+    roles: [RoleGroupInput]
+    profile: ProfileInput
+}
+
+input RoleGroupInput {
+    role: String
+    group: String
+}
+
+input EmailInput {
+    email: String
+    verified: Boolean
+}
+
+input UserServiceInput {
+    password: ServicePasswordInput
+}
+
+input ServicePasswordInput {
+    bcrypt: String!
+}
+
+input ServiceJwtInput {
+    refreshTokens: [JwtRefreshTokenInput]
+}
+
+input JwtRefreshTokenInput {
+    name: String!
+    token: String!
+}
+
+input ProfileInput {
+    email: String
+    name: String
+    avatarUrl: String
+}
+
+type User {
+    id: ID!
+    createdAt: Date
+    emails: [Email]
+    services: [UserService]
+    roles: [RoleGroup]
+    profile: Profile
+}
+
+type RoleGroup {
+    role: String
+    group: String
+}
+
+type Email {
+    email: String
+    verified: Boolean
+}
+
+type UserService {
+    password: ServicePassword
+}
+
+type ServicePassword {
+    bcrypt: String!
+}
+
+type ServiceJwt {
+    refreshTokens: [JwtRefreshToken]
+}
+
+type JwtRefreshToken {
+    name: String!
+    token: String!
+}
+
+type Profile {
+    email: String!
+    name: String!
+    avatarUrl: String
+}
+
+type LoginPayload {
+    error: String
+    userId: String
+    accessToken: String
+    refreshToken: String
+}
+
+type SignUpPayload {
+    error: String
+    user: User
+}
+
+type UsersPayload {
+    error: String
+    cursor: String
+    docs: [User]
+}
+
+type UserPayload {
+    error: String
+    user: User
+}
+
+type NoPayload {
+    error: String
+}

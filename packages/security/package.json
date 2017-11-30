@@ -1,0 +1,39 @@
+{
+  "name": "@ts-app/security",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "clean": "rm -fr ./dist",
+    "compile": "tsc -p config/tsconfig-compile.json && cp src/*.graphqls dist",
+    "compile-watch": "tsc -p config/tsconfig-compile.json --watch",
+    "coverage": "jest --config config/jest.config.js --maxWorkers=1 --coverage --collectCoverage",
+    "generate-schema": "apollo-codegen introspect-schema src/schema.graphqls --output schema.json",
+    "graphql": "seed=1 ts-app-graphql -p dist/securitySchemaDefinition.js -d -m mongodb://localhost:27017",
+    "graphql-mutation": "ts-app-graphql -p dist/securitySchemaDefinition.js -d -m mongodb://localhost:27017 -r Mutation",
+    "lint": "tslint --project config/tsconfig-test.json",
+    "pack": "npm pack",
+    "prepublish": "npm run compile",
+    "test": "jest --config config/jest.config.js --maxWorkers=1",
+    "test-watch": "jest --config config/jest.config.js --maxWorkers=1 --watch"
+  },
+  "devDependencies": {
+    "apollo-codegen": "^0.17.1",
+    "jest": "^21.2.1",
+    "tslint": "^5.8.0",
+    "typescript": "~2.5"
+  },
+  "dependencies": {
+    "@ts-app/common": "0.0.2",
+    "@ts-app/graphql": "0.0.2",
+    "@ts-app/mongo": "0.0.2",
+    "bcryptjs": "^2.4.3",
+    "graphql-tag": "^2.5.0",
+    "graphql-tools": "^2.5.1",
+    "jsonwebtoken": "^8.1.0"
+  }
+}

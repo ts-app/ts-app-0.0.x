@@ -1,0 +1,317 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`securitySchemaDefinition allow anonymous access to "loginWithEmailPassword" 1`] = `
+Object {
+  "loginWithEmailPassword": Object {
+    "accessToken": null,
+    "error": "Invalid login attempt",
+    "refreshToken": null,
+  },
+}
+`;
+
+exports[`securitySchemaDefinition authorized access to "users" 1`] = `
+Object {
+  "docs": Array [
+    Object {
+      "profile": Object {
+        "email": "admin@test.local",
+      },
+    },
+    Object {
+      "profile": Object {
+        "email": "user1@test.local",
+      },
+    },
+    Object {
+      "profile": Object {
+        "email": "user2@test.local",
+      },
+    },
+    Object {
+      "profile": Object {
+        "email": "user3@test.local",
+      },
+    },
+    Object {
+      "profile": Object {
+        "email": "user4@test.local",
+      },
+    },
+    Object {
+      "profile": Object {
+        "email": "user5@test.local",
+      },
+    },
+    Object {
+      "profile": Object {
+        "email": "user6@test.local",
+      },
+    },
+    Object {
+      "profile": Object {
+        "email": "user7@test.local",
+      },
+    },
+    Object {
+      "profile": Object {
+        "email": "user8@test.local",
+      },
+    },
+    Object {
+      "profile": Object {
+        "email": "user9@test.local",
+      },
+    },
+  ],
+  "error": null,
+}
+`;
+
+exports[`securitySchemaDefinition authorized access with userIdMatchParam() 1`] = `
+Object {
+  "data": Object {
+    "updateProfile": Object {
+      "error": "Unauthorized access!",
+    },
+  },
+}
+`;
+
+exports[`securitySchemaDefinition prevent anonymous access to "users" 1`] = `
+Object {
+  "docs": null,
+  "error": "Unauthenticated access!",
+}
+`;
+
+exports[`securitySchemaDefinition security schema definition 1`] = `
+Object {
+  "dependencies": Object {
+    "standard": Object {
+      "resolvers": Object {
+        "Date": "Date",
+      },
+      "typeDefs": "scalar Date",
+    },
+  },
+  "resolvers": Object {
+    "Mutation": Object {
+      "addUsersToRoles": [Function],
+      "createRole": [Function],
+      "loginWithEmailPassword": [Function],
+      "removeRole": [Function],
+      "removeUser": [Function],
+      "removeUsersFromAllRoles": [Function],
+      "removeUsersFromRoles": [Function],
+      "reset": [Function],
+      "seedUsers": [Function],
+      "setProfile": [Function],
+      "signUp": [Function],
+      "updateProfile": [Function],
+    },
+    "Query": Object {
+      "findRolesWithCursor": [Function],
+      "getGroupsForUser": [Function],
+      "getUsersInRoles": [Function],
+      "user": [Function],
+      "userIsInRoles": [Function],
+      "userRoles": [Function],
+      "users": [Function],
+    },
+  },
+  "typeDefs": "type Query {
+    userIsInRoles(userId: String!, roles: [String]!, group: String): Boolean
+    getGroupsForUser(userId: String, role: String): GetGroupsForUserPayload
+    findRolesWithCursor(q: String, limit: Int, cursor: String): FindRolesWithCursorPayload
+    userRoles(userId: String!, group: String): GetRolesForUserPayload
+    getUsersInRoles(roles: [String]!, group: String, limit: Int, cursor: String): GetUsersInRolesPayload
+user(id: ID!): UserPayload
+    users(q: String, limit: Int, cursor: String): UsersPayload
+}
+
+type Mutation {
+    addUsersToRoles(userIds: [String]!, roles: [String], group: String): NoPayload
+    createRole(name: String!): CreateRolePayload
+    removeRole(name: String!): NoPayload
+    removeUsersFromRoles(userIds: [String]!, roles: [String]!, group: String): NoPayload
+    removeUsersFromAllRoles(userIds: [String]!): NoPayload
+seedUsers(force: Boolean): NoPayload
+    reset: NoPayload
+    signUp(email: String!, password: String!): SignUpPayload
+    loginWithEmailPassword(email: String!, password: String!): LoginPayload
+    removeUser(id: ID!): NoPayload
+    updateProfile(id: ID!, profile: ProfileInput!): NoPayload
+    setProfile(id:ID!, profile: ProfileInput!): NoPayload
+    updateUser(id: ID!, user: UserInput!): UserPayload
+}
+
+type Role {
+    id: String
+    name: String
+}
+
+type CreateRolePayload {
+    error: String
+    id: String
+}
+
+type GetGroupsForUserPayload {
+    error: String
+    groups: [String]
+}
+
+type FindRolesWithCursorPayload {
+    error: String
+    cursor: String
+    docs: [Role]
+}
+
+type GetRolesForUserPayload {
+    error: String
+    roles: [String]
+}
+
+type GetUsersInRolesPayload {
+    error: String
+    cursor: String
+    docs: [User]
+}
+
+
+
+
+
+input UserInput {
+    emails: [EmailInput]
+    services: [UserServiceInput]
+    roles: [RoleGroupInput]
+    profile: ProfileInput
+}
+
+input RoleGroupInput {
+    role: String
+    group: String
+}
+
+input EmailInput {
+    email: String
+    verified: Boolean
+}
+
+input UserServiceInput {
+    password: ServicePasswordInput
+}
+
+input ServicePasswordInput {
+    bcrypt: String!
+}
+
+input ServiceJwtInput {
+    refreshTokens: [JwtRefreshTokenInput]
+}
+
+input JwtRefreshTokenInput {
+    name: String!
+    token: String!
+}
+
+input ProfileInput {
+    email: String
+    name: String
+    avatarUrl: String
+}
+
+type User {
+    id: ID!
+    createdAt: Date
+    emails: [Email]
+    services: [UserService]
+    roles: [RoleGroup]
+    profile: Profile
+}
+
+type RoleGroup {
+    role: String
+    group: String
+}
+
+type Email {
+    email: String
+    verified: Boolean
+}
+
+type UserService {
+    password: ServicePassword
+}
+
+type ServicePassword {
+    bcrypt: String!
+}
+
+type ServiceJwt {
+    refreshTokens: [JwtRefreshToken]
+}
+
+type JwtRefreshToken {
+    name: String!
+    token: String!
+}
+
+type Profile {
+    email: String!
+    name: String!
+    avatarUrl: String
+}
+
+type LoginPayload {
+    error: String
+    userId: String
+    accessToken: String
+    refreshToken: String
+}
+
+type SignUpPayload {
+    error: String
+    user: User
+}
+
+type UsersPayload {
+    error: String
+    cursor: String
+    docs: [User]
+}
+
+type UserPayload {
+    error: String
+    user: User
+}
+
+type NoPayload {
+    error: String
+}
+",
+}
+`;
+
+exports[`securitySchemaDefinition signUp() with invalid email 1`] = `
+Object {
+  "data": Object {
+    "signUp": Object {
+      "error": "Invalid email",
+      "user": null,
+    },
+  },
+}
+`;
+
+exports[`securitySchemaDefinition signUp() without password 1`] = `
+Object {
+  "data": Object {
+    "signUp": Object {
+      "error": "Invalid password",
+      "user": null,
+    },
+  },
+}
+`;

@@ -1,0 +1,47 @@
+type Query {
+    userIsInRoles(userId: String!, roles: [String]!, group: String): Boolean
+    getGroupsForUser(userId: String, role: String): GetGroupsForUserPayload
+    findRolesWithCursor(q: String, limit: Int, cursor: String): FindRolesWithCursorPayload
+    userRoles(userId: String!, group: String): GetRolesForUserPayload
+    getUsersInRoles(roles: [String]!, group: String, limit: Int, cursor: String): GetUsersInRolesPayload
+}
+
+type Mutation {
+    addUsersToRoles(userIds: [String]!, roles: [String], group: String): NoPayload
+    createRole(name: String!): CreateRolePayload
+    removeRole(name: String!): NoPayload
+    removeUsersFromRoles(userIds: [String]!, roles: [String]!, group: String): NoPayload
+    removeUsersFromAllRoles(userIds: [String]!): NoPayload
+}
+
+type Role {
+    id: String
+    name: String
+}
+
+type CreateRolePayload {
+    error: String
+    id: String
+}
+
+type GetGroupsForUserPayload {
+    error: String
+    groups: [String]
+}
+
+type FindRolesWithCursorPayload {
+    error: String
+    cursor: String
+    docs: [Role]
+}
+
+type GetRolesForUserPayload {
+    error: String
+    roles: [String]
+}
+
+type GetUsersInRolesPayload {
+    error: String
+    cursor: String
+    docs: [User]
+}

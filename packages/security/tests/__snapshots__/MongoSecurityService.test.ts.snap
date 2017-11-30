@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MongoSecurityService getProfile() 1`] = `
+Object {
+  "email": "test@test.com",
+  "name": "test",
+}
+`;
+
+exports[`MongoSecurityService user() with invalid user ID 1`] = `
+Object {
+  "error": "Error getting user [012345678912]",
+}
+`;
