@@ -1,0 +1,17 @@
+{
+  "name": "@ts-app/server-bom",
+  "version": "0.0.1",
+  "license": "MIT",
+  "scripts": {
+    "pack": "npm pack"
+  },
+  "dependencies": {
+    "@types/express": "^4.0.39",
+    "@types/graphql": "^0.11.5",
+    "@types/mongodb": "^2.2.15",
+    "graphql": "~0.11.7",
+    "mongodb": "~2.2.33",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
+  }
+}
