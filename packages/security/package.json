@@ -12,12 +12,10 @@
     "compile": "tsc -p config/tsconfig-compile.json && cp src/*.graphqls dist",
     "compile-watch": "tsc -p config/tsconfig-compile.json --watch",
     "coverage": "jest --config config/jest.config.js --maxWorkers=1 --coverage --collectCoverage",
-    "generate-schema": "apollo-codegen introspect-schema src/schema.graphqls --output schema.json",
     "graphql": "seed=1 ts-app-graphql -p dist/securitySchemaDefinition.js -d -m mongodb://localhost:27017",
-    "graphql-mutation": "ts-app-graphql -p dist/securitySchemaDefinition.js -d -m mongodb://localhost:27017 -r Mutation",
     "lint": "tslint --project config/tsconfig-test.json",
     "pack": "npm pack",
-    "prepublish": "npm run compile",
+    "prepublishOnly": "npm run compile",
     "test": "jest --config config/jest.config.js --maxWorkers=1",
     "test-watch": "jest --config config/jest.config.js --maxWorkers=1 --watch"
   },
