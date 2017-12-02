@@ -1,6 +1,6 @@
 {
   "name": "@ts-app/server-bom",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "scripts": {
     "pack": "npm pack"
