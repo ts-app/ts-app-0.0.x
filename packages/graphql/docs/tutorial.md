@@ -1,6 +1,6 @@
 # @ts-app/graphql - Tutorial
 
-If you have not done so, please read [README.md](README.md) first.
+If you have not done so, please read [README.md](../README.md) first.
 
 In this tutorial, we will:
 * Configure a TypeScript project.
