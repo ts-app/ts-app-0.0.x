@@ -1,5 +1,6 @@
 # ts-app
 
+[![Build Status](https://travis-ci.org/ts-app/ts-app.svg)](https://travis-ci.org/ts-app/ts-app)
 [![codecov](https://codecov.io/gh/ts-app/ts-app/branch/master/graph/badge.svg)](https://codecov.io/gh/ts-app/ts-app)
 
 > Create & serve GraphQL services with JavaScript decorators. 

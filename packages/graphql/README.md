@@ -1,6 +1,6 @@
 # @ts-app/graphql
 
-[![Build Status](https://travis-ci.org/ts-app/ts-app.svg)](https://travis-ci.org/ts-app/ts-app)
+[![npm version](https://badge.fury.io/js/%40ts-app%2Fgraphql.svg)](https://badge.fury.io/js/%40ts-app%2Fgraphql)
 
 > Create & Serve GraphQL Services with JavaScript Decorators.
 
