@@ -9,3 +9,4 @@ lerna bootstrap --hoist
 lerna run lint
 lerna run compile
 lerna run test
+lerna run coverage
