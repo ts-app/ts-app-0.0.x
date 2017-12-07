@@ -14,7 +14,7 @@ import { SchemaInfo } from './SchemaInfo'
 import { printQueryInfo } from './printQueryInfo'
 
 const name = 'ts-app-graphql'
-const version = '0.0.1'
+const version = require('../package.json').version
 let restartCount = 0
 
 commander.name(name).version(version)
