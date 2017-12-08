@@ -122,6 +122,7 @@ It has the following default behavior:
 * Function name will be used as resolver name.
 * Resolver belongs to the "Query" root type
 * GraphQL query's argument object is passed to the function.
+
 ```
 # given this query
 fieldName(obj, args, context, info) { result }
@@ -148,6 +149,7 @@ Override default behavior with:
 * `name` Map function to a different resolver name.
 * `type` Specify query type as either 'query' or 'mutation'.
 * `paramNames` Map GraphQL query's argument object to function parameters with a string array.
+
 ```
 # given this query
 fieldName(obj, args, context, info) { result }
