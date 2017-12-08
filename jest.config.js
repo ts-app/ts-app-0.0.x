@@ -10,6 +10,7 @@ module.exports = {
   "collectCoverageFrom": [
     "src/**/*.{ts,tsx,js,jsx}"
   ],
+  "coveragePathIgnorePatterns": [".*\\.d\\.ts", "<rootDir>/node_modules/"],
   "mapCoverage": true,
   "moduleFileExtensions": [
     "ts",
