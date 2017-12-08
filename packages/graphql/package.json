@@ -9,6 +9,7 @@
     "compile": "tsc -p config/tsconfig-compile.json && cp src/*.graphqls dist",
     "compile-watch": "tsc -p config/tsconfig-compile.json --watch",
     "coverage": "jest --config config/jest.config.js --coverage --collectCoverage",
+    "doc": "typedoc --gitRevision master --mode file --out dist/docs src",
     "lint": "tslint --project config/tsconfig-test.json",
     "pack": "npm pack",
     "prepublishOnly": "npm run lint && npm run compile && npm test",
@@ -25,6 +26,7 @@
     "apollo-codegen": "^0.17.1",
     "jest": "^21.2.1",
     "tslint": "^5.8.0",
+    "typedoc": "^0.9.0",
     "typescript": "~2.5"
   },
   "dependencies": {
