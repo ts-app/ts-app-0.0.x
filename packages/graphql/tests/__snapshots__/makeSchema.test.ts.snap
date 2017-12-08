@@ -70,6 +70,7 @@ GraphQLSchema {
     "Int": "Int",
     "Mutation": "Mutation",
     "Query": "Query",
+    "ResolverInfoPayload": "ResolverInfoPayload",
     "String": "String",
     "__Directive": "__Directive",
     "__DirectiveLocation": "__DirectiveLocation",

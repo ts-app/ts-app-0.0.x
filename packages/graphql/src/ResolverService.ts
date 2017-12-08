@@ -99,21 +99,22 @@ export class ResolverService {
   }
 
   composeResolver (className: string, functionName: string, type: 'mutation' | 'query' = 'query', auth: string[] | ResolverAuth = [], resolverName: string = '') {
-    const middleware = new Middleware<ResolverMiddlewareInput>([
-      ...this.beforewares,
-      this.createServiceFnMiddleware(className, functionName),
-      ...this.afterwares
-    ])
-
     // when resolver executes, it resolves the middleware
     return async (obj: any, args: any, context: any, info: any) => {
       try {
         const user = context.user || null
-        return await middleware.resolve({
+        const resolverParams = {
           obj, args, context, info,
           metadata: { className, functionName, resolverName, auth, type },
           user
-        })
+        }
+        const middleware = new Middleware<ResolverMiddlewareInput>([
+          ...this.beforewares,
+          this.createServiceFnMiddleware(className, functionName, resolverParams),
+          ...this.afterwares
+        ])
+
+        return await middleware.resolve(resolverParams)
       } catch (e) {
         const now = Date.now()
         logError(`[${now}]`, e)
@@ -195,7 +196,7 @@ export class ResolverService {
     this.afterwares.push(after)
   }
 
-  private createServiceFnMiddleware (className: string, functionName: string): MiddlewareFunction<ResolverMiddlewareInput> {
+  private createServiceFnMiddleware (className: string, functionName: string, resolverParams: object): MiddlewareFunction<ResolverMiddlewareInput> {
     // service function that performs business logic
     const serviceFn = this.composeServiceFunction(className, functionName)
 
@@ -206,12 +207,12 @@ export class ResolverService {
       return ({ obj, args, context, info }, next) => {
         // convert args (object) to as array, pass to serviceFn as spread parameters
         const params = paramNames.map(name => args[ name ])
-        next(serviceFn(...params))
+        next(serviceFn(...params, resolverParams))
       }
     } else {
       // middleware just pass args to serviceFn (it is expected to take a single object parameter)
       return ({ obj, args, context, info }, next) => {
-        next(serviceFn(args))
+        next(serviceFn(args, resolverParams))
       }
     }
   }

@@ -143,6 +143,7 @@ fieldName(params) {
     error: `Error processing resolver function [${className}.${functionName}] [${now}]`
 }
 ```
+* Last parameter of resolver function is always populated with [MiddlewareInputResolver](https://github.com/ts-app/ts-app/blob/master/packages/graphql/src/ResolverMiddlewareInput.ts) object that represents [resolver's input argumetns and metadata](https://www.apollographql.com/docs/graphql-tools/resolvers.html). Refer to `DemoService.resolverInfo()` for demo. 
 
 Override default behavior with:
 

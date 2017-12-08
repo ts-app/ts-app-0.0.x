@@ -1,9 +1,19 @@
 type Query {
   echo (name: String!, message: String!): String
   throwSomeError: String
+  resolverInfo (title: String): ResolverInfoPayload
 }
 
 type Mutation {
   add (howMany: Int): Int
   promiseToSubtract (howMany: Int): Int
+}
+
+type ResolverInfoPayload {
+    title: String
+    metadata: String
+    user: String
+    obj: String
+    info: String
+    args: String
 }

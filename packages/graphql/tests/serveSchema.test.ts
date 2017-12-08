@@ -45,4 +45,17 @@ describe('serveSchema', async () => {
     expect(add.errors).toBeUndefined()
     expect(add.data).toMatchSnapshot()
   })
+
+  test('resolver info passed as last parameter', async () => {
+    const resolverInfo = await fetch({
+      query: gql`query {
+          resolverInfo(title: "Candy") {
+              title
+              metadata user obj info args
+          }
+      }`
+    })
+    expect(resolverInfo.errors).toBeUndefined()
+    expect(resolverInfo.data).toMatchSnapshot()
+  })
 })

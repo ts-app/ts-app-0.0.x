@@ -11,3 +11,306 @@ Object {
   "echo": "Hello, Bob! Message is \\"is jumping!\\"",
 }
 `;
+
+exports[`serveSchema resolver info passed as last parameter 1`] = `
+Object {
+  "resolverInfo": Object {
+    "args": "{
+  \\"title\\": \\"Candy\\"
+}",
+    "info": "{
+  \\"fieldName\\": \\"resolverInfo\\",
+  \\"fieldNodes\\": [
+    {
+      \\"kind\\": \\"Field\\",
+      \\"alias\\": null,
+      \\"name\\": {
+        \\"kind\\": \\"Name\\",
+        \\"value\\": \\"resolverInfo\\"
+      },
+      \\"arguments\\": [
+        {
+          \\"kind\\": \\"Argument\\",
+          \\"name\\": {
+            \\"kind\\": \\"Name\\",
+            \\"value\\": \\"title\\"
+          },
+          \\"value\\": {
+            \\"kind\\": \\"StringValue\\",
+            \\"value\\": \\"Candy\\"
+          }
+        }
+      ],
+      \\"directives\\": [],
+      \\"selectionSet\\": {
+        \\"kind\\": \\"SelectionSet\\",
+        \\"selections\\": [
+          {
+            \\"kind\\": \\"Field\\",
+            \\"alias\\": null,
+            \\"name\\": {
+              \\"kind\\": \\"Name\\",
+              \\"value\\": \\"title\\"
+            },
+            \\"arguments\\": [],
+            \\"directives\\": [],
+            \\"selectionSet\\": null
+          },
+          {
+            \\"kind\\": \\"Field\\",
+            \\"alias\\": null,
+            \\"name\\": {
+              \\"kind\\": \\"Name\\",
+              \\"value\\": \\"metadata\\"
+            },
+            \\"arguments\\": [],
+            \\"directives\\": [],
+            \\"selectionSet\\": null
+          },
+          {
+            \\"kind\\": \\"Field\\",
+            \\"alias\\": null,
+            \\"name\\": {
+              \\"kind\\": \\"Name\\",
+              \\"value\\": \\"user\\"
+            },
+            \\"arguments\\": [],
+            \\"directives\\": [],
+            \\"selectionSet\\": null
+          },
+          {
+            \\"kind\\": \\"Field\\",
+            \\"alias\\": null,
+            \\"name\\": {
+              \\"kind\\": \\"Name\\",
+              \\"value\\": \\"obj\\"
+            },
+            \\"arguments\\": [],
+            \\"directives\\": [],
+            \\"selectionSet\\": null
+          },
+          {
+            \\"kind\\": \\"Field\\",
+            \\"alias\\": null,
+            \\"name\\": {
+              \\"kind\\": \\"Name\\",
+              \\"value\\": \\"info\\"
+            },
+            \\"arguments\\": [],
+            \\"directives\\": [],
+            \\"selectionSet\\": null
+          },
+          {
+            \\"kind\\": \\"Field\\",
+            \\"alias\\": null,
+            \\"name\\": {
+              \\"kind\\": \\"Name\\",
+              \\"value\\": \\"args\\"
+            },
+            \\"arguments\\": [],
+            \\"directives\\": [],
+            \\"selectionSet\\": null
+          }
+        ]
+      }
+    }
+  ],
+  \\"returnType\\": \\"ResolverInfoPayload\\",
+  \\"parentType\\": \\"Query\\",
+  \\"path\\": {
+    \\"key\\": \\"resolverInfo\\"
+  },
+  \\"schema\\": {
+    \\"_queryType\\": \\"Query\\",
+    \\"_mutationType\\": \\"Mutation\\",
+    \\"_subscriptionType\\": null,
+    \\"_directives\\": [
+      {
+        \\"name\\": \\"skip\\",
+        \\"description\\": \\"Directs the executor to skip this field or fragment when the \`if\` argument is true.\\",
+        \\"locations\\": [
+          \\"FIELD\\",
+          \\"FRAGMENT_SPREAD\\",
+          \\"INLINE_FRAGMENT\\"
+        ],
+        \\"args\\": [
+          {
+            \\"name\\": \\"if\\",
+            \\"description\\": \\"Skipped when true.\\",
+            \\"type\\": \\"Boolean!\\"
+          }
+        ]
+      },
+      {
+        \\"name\\": \\"include\\",
+        \\"description\\": \\"Directs the executor to include this field or fragment only when the \`if\` argument is true.\\",
+        \\"locations\\": [
+          \\"FIELD\\",
+          \\"FRAGMENT_SPREAD\\",
+          \\"INLINE_FRAGMENT\\"
+        ],
+        \\"args\\": [
+          {
+            \\"name\\": \\"if\\",
+            \\"description\\": \\"Included when true.\\",
+            \\"type\\": \\"Boolean!\\"
+          }
+        ]
+      },
+      {
+        \\"name\\": \\"deprecated\\",
+        \\"description\\": \\"Marks an element of a GraphQL schema as no longer supported.\\",
+        \\"locations\\": [
+          \\"FIELD_DEFINITION\\",
+          \\"ENUM_VALUE\\"
+        ],
+        \\"args\\": [
+          {
+            \\"name\\": \\"reason\\",
+            \\"description\\": \\"Explains why this element was deprecated, usually also including a suggestion for how to access supported similar data. Formatted in [Markdown](https://daringfireball.net/projects/markdown/).\\",
+            \\"type\\": \\"String\\",
+            \\"defaultValue\\": \\"No longer supported\\"
+          }
+        ]
+      }
+    ],
+    \\"astNode\\": null,
+    \\"_typeMap\\": {
+      \\"Query\\": \\"Query\\",
+      \\"String\\": \\"String\\",
+      \\"ResolverInfoPayload\\": \\"ResolverInfoPayload\\",
+      \\"Mutation\\": \\"Mutation\\",
+      \\"Int\\": \\"Int\\",
+      \\"__Schema\\": \\"__Schema\\",
+      \\"__Type\\": \\"__Type\\",
+      \\"__TypeKind\\": \\"__TypeKind\\",
+      \\"Boolean\\": \\"Boolean\\",
+      \\"__Field\\": \\"__Field\\",
+      \\"__InputValue\\": \\"__InputValue\\",
+      \\"__EnumValue\\": \\"__EnumValue\\",
+      \\"__Directive\\": \\"__Directive\\",
+      \\"__DirectiveLocation\\": \\"__DirectiveLocation\\",
+      \\"Date\\": \\"Date\\"
+    },
+    \\"_implementations\\": {}
+  },
+  \\"fragments\\": {},
+  \\"operation\\": {
+    \\"kind\\": \\"OperationDefinition\\",
+    \\"operation\\": \\"query\\",
+    \\"variableDefinitions\\": [],
+    \\"directives\\": [],
+    \\"selectionSet\\": {
+      \\"kind\\": \\"SelectionSet\\",
+      \\"selections\\": [
+        {
+          \\"kind\\": \\"Field\\",
+          \\"alias\\": null,
+          \\"name\\": {
+            \\"kind\\": \\"Name\\",
+            \\"value\\": \\"resolverInfo\\"
+          },
+          \\"arguments\\": [
+            {
+              \\"kind\\": \\"Argument\\",
+              \\"name\\": {
+                \\"kind\\": \\"Name\\",
+                \\"value\\": \\"title\\"
+              },
+              \\"value\\": {
+                \\"kind\\": \\"StringValue\\",
+                \\"value\\": \\"Candy\\"
+              }
+            }
+          ],
+          \\"directives\\": [],
+          \\"selectionSet\\": {
+            \\"kind\\": \\"SelectionSet\\",
+            \\"selections\\": [
+              {
+                \\"kind\\": \\"Field\\",
+                \\"alias\\": null,
+                \\"name\\": {
+                  \\"kind\\": \\"Name\\",
+                  \\"value\\": \\"title\\"
+                },
+                \\"arguments\\": [],
+                \\"directives\\": [],
+                \\"selectionSet\\": null
+              },
+              {
+                \\"kind\\": \\"Field\\",
+                \\"alias\\": null,
+                \\"name\\": {
+                  \\"kind\\": \\"Name\\",
+                  \\"value\\": \\"metadata\\"
+                },
+                \\"arguments\\": [],
+                \\"directives\\": [],
+                \\"selectionSet\\": null
+              },
+              {
+                \\"kind\\": \\"Field\\",
+                \\"alias\\": null,
+                \\"name\\": {
+                  \\"kind\\": \\"Name\\",
+                  \\"value\\": \\"user\\"
+                },
+                \\"arguments\\": [],
+                \\"directives\\": [],
+                \\"selectionSet\\": null
+              },
+              {
+                \\"kind\\": \\"Field\\",
+                \\"alias\\": null,
+                \\"name\\": {
+                  \\"kind\\": \\"Name\\",
+                  \\"value\\": \\"obj\\"
+                },
+                \\"arguments\\": [],
+                \\"directives\\": [],
+                \\"selectionSet\\": null
+              },
+              {
+                \\"kind\\": \\"Field\\",
+                \\"alias\\": null,
+                \\"name\\": {
+                  \\"kind\\": \\"Name\\",
+                  \\"value\\": \\"info\\"
+                },
+                \\"arguments\\": [],
+                \\"directives\\": [],
+                \\"selectionSet\\": null
+              },
+              {
+                \\"kind\\": \\"Field\\",
+                \\"alias\\": null,
+                \\"name\\": {
+                  \\"kind\\": \\"Name\\",
+                  \\"value\\": \\"args\\"
+                },
+                \\"arguments\\": [],
+                \\"directives\\": [],
+                \\"selectionSet\\": null
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  \\"variableValues\\": {}
+}",
+    "metadata": "{
+  \\"className\\": \\"DemoService\\",
+  \\"functionName\\": \\"resolverInfo\\",
+  \\"resolverName\\": \\"resolverInfo\\",
+  \\"auth\\": [],
+  \\"type\\": \\"mutation\\"
+}",
+    "obj": null,
+    "title": "Candy",
+    "user": "null",
+  },
+}
+`;

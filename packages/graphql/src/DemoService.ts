@@ -1,5 +1,6 @@
 import { Resolver } from './Resolver'
 import { ServiceInfo } from './ServiceInfo'
+import { ResolverMiddlewareInput } from './ResolverMiddlewareInput'
 
 export class DemoService {
   private anotherNumber: number = 123
@@ -35,6 +36,19 @@ export class DemoService {
   @Resolver()
   throwSomeError () {
     throw new Error('simulated error')
+  }
+
+  @Resolver()
+  resolverInfo (param: { title: string }, resolverParam?: ResolverMiddlewareInput) {
+    const metadata = JSON.stringify(resolverParam![ 'metadata' ], null, 2)
+    const user = JSON.stringify(resolverParam![ 'user' ], null, 2)
+    const obj = JSON.stringify(resolverParam![ 'obj' ], null, 2)
+    const info = JSON.stringify(resolverParam![ 'info' ], null, 2)
+    const args = JSON.stringify(resolverParam![ 'args' ], null, 2)
+    return {
+      title: param.title,
+      metadata, user, obj, info, args
+    }
   }
 }
 

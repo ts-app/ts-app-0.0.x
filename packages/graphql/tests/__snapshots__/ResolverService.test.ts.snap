@@ -15,6 +15,7 @@ Object {
   "Query": Object {
     "echo": [Function],
     "echo2": [Function],
+    "resolverInfo": [Function],
     "throwSomeError": [Function],
   },
 }
@@ -89,6 +90,18 @@ Object {
     "name": null,
     "paramNames": null,
     "queryType": "mutation",
+  },
+  "resolverInfo": Object {
+    "auth": Array [],
+    "descriptor": Object {
+      "configurable": true,
+      "enumerable": true,
+      "value": [Function],
+      "writable": true,
+    },
+    "name": null,
+    "paramNames": null,
+    "queryType": "query",
   },
   "throwSomeError": Object {
     "auth": Array [],
