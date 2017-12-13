@@ -194,6 +194,14 @@ export class MongoSecurityService implements SecurityService, SecurityMiddleware
     }
   }
 
+  /**
+   * Create test users.
+   *
+   * Resolver authorized: If environment variable 'seed' is set to '1'.
+   *
+   * @param {{force?: boolean; userCount?: number}} input
+   * @return {Promise<{error?: string}>}
+   */
   @Resolver({ auth: environmentVariableIsSet('seed'), type: 'mutation' })
   async seedUsers (input: { force?: boolean, userCount?: number } = {}): Promise<{ error?: string }> {
     const { force = false, userCount = 20 } = input
