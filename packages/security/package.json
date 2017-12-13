@@ -13,7 +13,7 @@
     "compile-watch": "tsc -p config/tsconfig-compile.json --watch",
     "coverage": "jest --config config/jest.config.js --maxWorkers=1 --coverage --collectCoverage",
     "doc": "typedoc --gitRevision master --mode file --out dist/docs src",
-    "graphql": "seed=1 ts-app-graphql -p dist/securitySchemaDefinition.js -d -m mongodb://localhost:27017",
+    "graphql": "chmod +x ../graphql/dist/graphql.js && seed=1 ts-app-graphql -p dist/securitySchemaDefinition.js -d -m mongodb://localhost:27017",
     "lint": "tslint --project config/tsconfig-test.json",
     "pack": "npm pack",
     "prepublishOnly": "npm run compile",
