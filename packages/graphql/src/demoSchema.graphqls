@@ -1,12 +1,13 @@
 type Query {
-  echo (name: String!, message: String!): String
-  throwSomeError: String
-  resolverInfo (title: String): ResolverInfoPayload
+    echo (name: String!, message: String!): String
+    throwSomeError: String
+    resolverInfo (title: String): ResolverInfoPayload
+    resolverInfoWithoutParam: ResolverInfoPayload
 }
 
 type Mutation {
-  add (howMany: Int): Int
-  promiseToSubtract (howMany: Int): Int
+    add (howMany: Int): Int
+    promiseToSubtract (howMany: Int): Int
 }
 
 type ResolverInfoPayload {

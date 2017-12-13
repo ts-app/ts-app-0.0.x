@@ -50,6 +50,20 @@ export class DemoService {
       metadata, user, obj, info, args
     }
   }
+
+  @Resolver()
+  resolverInfoWithoutParam (dummy?: any, resolverParam?: ResolverMiddlewareInput) {
+    // resolverParam is still the second argument so place a dummy parameter first.
+
+    const metadata = JSON.stringify(resolverParam![ 'metadata' ], null, 2)
+    const user = JSON.stringify(resolverParam![ 'user' ], null, 2)
+    const obj = JSON.stringify(resolverParam![ 'obj' ], null, 2)
+    const info = JSON.stringify(resolverParam![ 'info' ], null, 2)
+    const args = JSON.stringify(resolverParam![ 'args' ], null, 2)
+    return {
+      metadata, user, obj, info, args
+    }
+  }
 }
 
 export class DemoServiceWithServiceInfo implements ServiceInfo {

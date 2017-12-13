@@ -121,7 +121,7 @@ It has the following default behavior:
 
 * Function name will be used as resolver name.
 * Resolver belongs to the "Query" root type
-* GraphQL query's argument object is passed to the function.
+* GraphQL query's argument object is passed to the function as first parameter.
 
 ```
 # given this query
@@ -143,7 +143,7 @@ fieldName(params) {
     error: `Error processing resolver function [${className}.${functionName}] [${now}]`
 }
 ```
-* Last parameter of resolver function is always populated with [MiddlewareInputResolver](https://github.com/ts-app/ts-app/blob/master/packages/graphql/src/ResolverMiddlewareInput.ts) object that represents [resolver's input argumetns and metadata](https://www.apollographql.com/docs/graphql-tools/resolvers.html). Refer to `DemoService.resolverInfo()` for demo. 
+* Last parameter of resolver function is always populated with [MiddlewareInputResolver](https://github.com/ts-app/ts-app/blob/master/packages/graphql/src/ResolverMiddlewareInput.ts) object that represents [resolver's input argumetns and metadata](https://www.apollographql.com/docs/graphql-tools/resolvers.html). Refer to `DemoService.resolverInfo()` for demo. For resolver functions that is not using `paramNames`, this will always be the second parameter.
 
 Override default behavior with:
 

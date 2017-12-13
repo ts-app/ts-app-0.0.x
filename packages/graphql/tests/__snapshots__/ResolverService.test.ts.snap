@@ -16,6 +16,7 @@ Object {
     "echo": [Function],
     "echo2": [Function],
     "resolverInfo": [Function],
+    "resolverInfoWithoutParam": [Function],
     "throwSomeError": [Function],
   },
 }
@@ -92,6 +93,18 @@ Object {
     "queryType": "mutation",
   },
   "resolverInfo": Object {
+    "auth": Array [],
+    "descriptor": Object {
+      "configurable": true,
+      "enumerable": true,
+      "value": [Function],
+      "writable": true,
+    },
+    "name": null,
+    "paramNames": null,
+    "queryType": "query",
+  },
+  "resolverInfoWithoutParam": Object {
     "auth": Array [],
     "descriptor": Object {
       "configurable": true,

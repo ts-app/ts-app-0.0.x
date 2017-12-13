@@ -55,7 +55,18 @@ describe('serveSchema', async () => {
           }
       }`
     })
-    expect(resolverInfo.errors).toBeUndefined()
+    expect(resolverInfo.errors).toBeFalsy()
+    expect(resolverInfo.data).toMatchSnapshot()
+  })
+
+  test('resolver without parameter - resolver info passed as last parameter', async () => {
+    const resolverInfo = await fetch({
+      query: gql`query {
+          resolverInfoWithoutParam {
+              metadata user obj info args
+          }}     `
+    })
+    expect(resolverInfo.errors).toBeFalsy()
     expect(resolverInfo.data).toMatchSnapshot()
   })
 })
