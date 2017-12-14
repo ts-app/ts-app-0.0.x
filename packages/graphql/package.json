@@ -1,6 +1,6 @@
 {
   "name": "@ts-app/graphql",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "license": "MIT",
@@ -30,8 +30,8 @@
     "typescript": "~2.5"
   },
   "dependencies": {
-    "@ts-app/common": "0.0.2",
-    "@ts-app/mongo": "0.0.2",
+    "@ts-app/common": "^0.0.3",
+    "@ts-app/mongo": "^0.0.3",
     "body-parser": "^1.18.2",
     "chalk": "^2.3.0",
     "clear-module": "^2.1.0",
