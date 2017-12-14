@@ -13,4 +13,6 @@ See specific package for details:
 * `@ts-app/security` - Provides JWT based authentication & authorization for *TODO: documentation*
 
 
+Note: These packages are under heavy development and not production ready.
+
 This project uses [Lerna](https://github.com/lerna/lerna) to manage related NPM packages.
