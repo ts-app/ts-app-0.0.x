@@ -16,7 +16,7 @@ import { mergeTypeDefs, ResolverError } from '@ts-app/graphql'
  * - defines standardSchemaDefinition from @ts-app/graphql as a dependency
  *
  * @param {MongoService} mongoService
- * @return {SchemaDefinition}
+ * @return SchemaDefinition
  */
 export const securitySchemaDefinition = ({ mongoService }: { mongoService: MongoService }): SchemaDefinition => {
   const resolver = ResolverService.getInstance()

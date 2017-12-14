@@ -233,7 +233,9 @@ export class MongoRoleService implements RoleService, ServiceInfo {
 
   @Resolver({ auth: [ DefaultRoles.Administrator ], type: 'mutation' })
   async removeUsersFromRoles (input: { userIds: string | string[], roles: string | string[], group?: string }): Promise<{ error?: string }> {
-    const { userIds, roles, group } = input
+    // WARNING: group is not handled
+    // TODO: handle "group" if specified
+    const { userIds, roles } = input
     const _userIds = typeof userIds === 'string' ? [ userIds ] : userIds
     const _roles = typeof roles === 'string' ? [ roles ] : roles
     const filter = {
