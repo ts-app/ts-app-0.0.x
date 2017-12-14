@@ -5,12 +5,26 @@ import { MongoRoleService } from './MongoRoleService'
 import { loadFile, User } from '@ts-app/common'
 import { mergeTypeDefs, ResolverError } from '@ts-app/graphql'
 
+/**
+ * Returns a SchemaDefinition object that provides support for access authorization and user
+ * account management.
+ *
+ * The schema definition contains:
+ *
+ * - role.graphql from this package
+ * - security.graphql from this package
+ * - defines standardSchemaDefinition from @ts-app/graphql as a dependency
+ *
+ * @param {MongoService} mongoService
+ * @return {SchemaDefinition}
+ */
 export const securitySchemaDefinition = ({ mongoService }: { mongoService: MongoService }): SchemaDefinition => {
   const resolver = ResolverService.getInstance()
   const roleService = new MongoRoleService({ mongoService })
   resolver.registerService(roleService)
   resolver.registerService(new MongoSecurityService({ mongoService, roleService }))
 
+  // perform authorization checks @Resolver({auth}) is a "function"
   resolver.registerBeforeware(async (input, next, prev) => {
     if (typeof input.metadata.auth === 'function') {
       const auth = input.metadata.auth
@@ -25,6 +39,7 @@ export const securitySchemaDefinition = ({ mongoService }: { mongoService: Mongo
     }
   })
 
+  // perform authorization check if @Resolver({auth}) is a string array
   resolver.registerBeforeware(async (input, next, prev) => {
     const roles = input.metadata.auth
     const user: User = input.context.user

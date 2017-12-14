@@ -7,13 +7,18 @@ import { Resolver, ServiceInfo, userIdMatchParam } from '@ts-app/graphql'
 import { DefaultRoles } from './DefaultRoles'
 
 /**
- * Concept & implementation based on alanning/roles-npm
+ * RoleService implementation that uses MongoDB as the data storage.
  */
 export class MongoRoleService implements RoleService, ServiceInfo {
   private mongoService: MongoService
 
-  constructor ({ mongoService }: { mongoService: MongoService }) {
-    this.mongoService = mongoService
+  /**
+   * Create a new MongoRoleService.
+   *
+   * @param {MongoService} mongoService
+   */
+  constructor (input: { mongoService: MongoService }) {
+    this.mongoService = input.mongoService
   }
 
   info (): { serviceName: string; } {
@@ -23,9 +28,11 @@ export class MongoRoleService implements RoleService, ServiceInfo {
   }
 
   @Resolver({ auth: [ DefaultRoles.Administrator ], type: 'mutation' })
-  async addUsersToRoles ({ userIds, roles, group = RoleServiceConstants.GLOBAL }: {
+  async addUsersToRoles (input: {
     userIds: string | string[], roles: string | string[], group?: string
   }): Promise<{ error?: string }> {
+    const { userIds, roles, group = RoleServiceConstants.GLOBAL } = input
+
     if (!userIds || !roles || !group) {
       return { error: 'Invalid arguments for addUsersToRoles()' }
     }
@@ -79,13 +86,16 @@ export class MongoRoleService implements RoleService, ServiceInfo {
   }
 
   @Resolver({ auth: [ DefaultRoles.Administrator ], type: 'mutation' })
-  async createRole ({ name }: { name: string }): Promise<{ error?: string, id: string }> {
+  async createRole (input: { name: string }): Promise<{ error?: string, id: string }> {
+    const { name } = input
     const id = await this.mongoService.create('roles', { name })
     return { id }
   }
 
   @Resolver({ auth: [ DefaultRoles.Administrator ], type: 'mutation' })
-  async removeRole ({ name }: { name: string }): Promise<{ error?: string }> {
+  async removeRole (input: { name: string }): Promise<{ error?: string }> {
+    const { name } = input
+
     const userWithRole = await this.mongoService.get('users',
       {
         'roles.role': name
@@ -102,7 +112,8 @@ export class MongoRoleService implements RoleService, ServiceInfo {
   }
 
   @Resolver({ auth: userIdMatchParam('userId') })
-  async getGroupsForUser ({ role, userId }: { userId: string, role?: string }): Promise<{ error?: string, groups?: string[] }> {
+  async getGroupsForUser (input: { userId: string, role?: string }): Promise<{ error?: string, groups?: string[] }> {
+    const { role, userId } = input
     let filter
 
     if (role) {
@@ -160,7 +171,8 @@ export class MongoRoleService implements RoleService, ServiceInfo {
   }
 
   @Resolver({ auth: userIdMatchParam('userId'), name: 'userRoles' })
-  async getRolesForUser ({ userId, group }: { userId: string, group?: string }): Promise<{ error?: string, roles?: string[] }> {
+  async getRolesForUser (input: { userId: string, group?: string }): Promise<{ error?: string, roles?: string[] }> {
+    const { userId, group } = input
     let filter
     if (!group) {
       filter = { _id: new ObjectId(userId) }
@@ -197,9 +209,8 @@ export class MongoRoleService implements RoleService, ServiceInfo {
   }
 
   @Resolver({ auth: [ DefaultRoles.Administrator ] })
-  async getUsersInRoles ({ group, roles, limit, cursor }: {
-    roles: string | string[], group?: string, limit?: number, cursor?: string
-  }): Promise<FindWithCursor<User>> {
+  async getUsersInRoles (input: { roles: string | string[], group?: string, limit?: number, cursor?: string }): Promise<FindWithCursor<User>> {
+    const { group, roles, limit, cursor } = input
     const _roles = typeof roles === 'string' ? [ roles ] : roles
     const _groups = group ? [ group, RoleServiceConstants.GLOBAL ] : [ RoleServiceConstants.GLOBAL ]
 
@@ -221,9 +232,8 @@ export class MongoRoleService implements RoleService, ServiceInfo {
   }
 
   @Resolver({ auth: [ DefaultRoles.Administrator ], type: 'mutation' })
-  async removeUsersFromRoles ({ userIds, roles, group }: {
-    userIds: string | string[], roles: string | string[], group?: string
-  }): Promise<{ error?: string }> {
+  async removeUsersFromRoles (input: { userIds: string | string[], roles: string | string[], group?: string }): Promise<{ error?: string }> {
+    const { userIds, roles, group } = input
     const _userIds = typeof userIds === 'string' ? [ userIds ] : userIds
     const _roles = typeof roles === 'string' ? [ roles ] : roles
     const filter = {
@@ -250,7 +260,8 @@ export class MongoRoleService implements RoleService, ServiceInfo {
   }
 
   @Resolver({ auth: [ DefaultRoles.Administrator ], type: 'mutation' })
-  async removeUsersFromAllRoles ({ userIds }: { userIds: string | string[] }): Promise<{ error?: string }> {
+  async removeUsersFromAllRoles (input: { userIds: string | string[] }): Promise<{ error?: string }> {
+    const { userIds } = input
     const _userIds = typeof userIds === 'string' ? [ userIds ] : userIds
     const filter = {
       _id: { $in: _userIds.map(id => new ObjectId(id)) }
@@ -270,7 +281,8 @@ export class MongoRoleService implements RoleService, ServiceInfo {
   }
 
   @Resolver({ auth: userIdMatchParam('userId') })
-  async userIsInRoles ({ userId, roles, group }: { userId: string, roles: string | string[], group?: string }): Promise<boolean> {
+  async userIsInRoles (input: { userId: string, roles: string | string[], group?: string }): Promise<boolean> {
+    const { userId, roles, group } = input
     try {
       const _role = typeof roles === 'string' ? [ roles ] : roles
       const _groups = group ? [ group, RoleServiceConstants.GLOBAL ] : [ RoleServiceConstants.GLOBAL ]

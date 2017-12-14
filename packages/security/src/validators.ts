@@ -3,10 +3,18 @@ const isEmail = (email: string) => {
   return re.test(email)
 }
 
+/**
+ * Validates an email address.
+ *
+ * Returns true if specified email is valid, false otherwise.
+ */
 export const validateEmail = (email: string): boolean => {
   return !!(email && email.trim().length >= 3 && isEmail(email))
 }
 
+/**
+ * Validates a password.
+ */
 export const validatePassword = (password: string): boolean => {
   return !!(password && password.trim().length > 0)
 }

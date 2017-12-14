@@ -17,6 +17,11 @@ import {
 import { RoleService } from './RoleService'
 import { DefaultRoles } from './DefaultRoles'
 
+/**
+ * SecurityService implementation that uses MongoDB as the data storage.
+ *
+ * This implementation also provides an Express middleware that configures JWT authentication.
+ */
 export class MongoSecurityService implements SecurityService, SecurityMiddleware, ServiceInfo {
   private mongoService: MongoService
   private roleService: RoleService
@@ -119,7 +124,9 @@ export class MongoSecurityService implements SecurityService, SecurityMiddleware
   }
 
   @Resolver({ type: 'mutation' })
-  async signUp ({ email, password }: { email: string, password: string }): Promise<{ error?: string, user?: User }> {
+  async signUp (input: { email: string, password: string }): Promise<{ error?: string, user?: User }> {
+    const { email, password } = input
+
     if (!validateEmail(email)) {
       return { error: 'Invalid email' }
     }
@@ -159,7 +166,10 @@ export class MongoSecurityService implements SecurityService, SecurityMiddleware
   }
 
   @Resolver({ type: 'mutation' })
-  async loginWithEmailPassword ({ email, password }: { email: string, password: string }): Promise<{ error?: string, userId?: string, accessToken?: string, refreshToken?: string }> {
+  async loginWithEmailPassword (input: {
+    email: string, password: string
+  }): Promise<{ error?: string, userId?: string, accessToken?: string, refreshToken?: string }> {
+    const { email, password } = input
     const filter = {
       emails: {
         email,
@@ -195,12 +205,9 @@ export class MongoSecurityService implements SecurityService, SecurityMiddleware
   }
 
   /**
-   * Create test users.
+   * Create test/seed users within the system.
    *
-   * Resolver authorized: If environment variable 'seed' is set to '1'.
-   *
-   * @param {{force?: boolean; userCount?: number}} input
-   * @return {Promise<{error?: string}>}
+   * Resolver authorization prevents execution of this function unless environment variable 'seed' is set to '1'.
    */
   @Resolver({ auth: environmentVariableIsSet('seed'), type: 'mutation' })
   async seedUsers (input: { force?: boolean, userCount?: number } = {}): Promise<{ error?: string }> {
@@ -271,7 +278,8 @@ export class MongoSecurityService implements SecurityService, SecurityMiddleware
   }
 
   @Resolver({ auth: userIdMatchParam('id'), type: 'mutation' })
-  async updateProfile ({ id, profile }: { id: string, profile: { [key: string]: any } }): Promise<{ error?: string }> {
+  async updateProfile (input: { id: string, profile: { [key: string]: any } }): Promise<{ error?: string }> {
+    const { id, profile } = input
     const profileWithPrefix = Object.keys(profile).reduce((p: { [key: string]: any }, key: string) => {
       p[ `profile.${key}` ] = profile[ key ]
       return p
@@ -299,12 +307,16 @@ export class MongoSecurityService implements SecurityService, SecurityMiddleware
     return this.mongoService.dropCollection('users')
   }
 
+  // --- stuff below... TODO: not done...
+
   @Resolver({ auth: userIdMatchParam('id'), type: 'mutation' })
-  async setProfile<T extends Profile> ({ id, profile }: { id: string, profile: T }): Promise<void> {
+  async setProfile<T extends Profile> (input: { id: string, profile: T }): Promise<void> {
+    const { id, profile } = input
     return this.mongoService.update('users', id, { profile })
   }
 
-  async getProfile<T extends Profile> ({ id }: { id: string }): Promise<T> {
+  async getProfile<T extends Profile> (input: { id: string }): Promise<T> {
+    const { id } = input
     const user = await this.mongoService.get<User>('users', id, {
       fields: { profile: 1 }
     })

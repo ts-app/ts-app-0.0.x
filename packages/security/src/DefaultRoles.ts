@@ -1,5 +1,13 @@
+/**
+ * Pre-defined roles used by MongoSecurityService.
+ */
 export enum DefaultRoles {
-  // support for self role...
+  /**
+   * Administrator role.
+   */
   Administrator = 'Administrator',
+  /**
+   * User role.
+   */
   User = 'User'
 }

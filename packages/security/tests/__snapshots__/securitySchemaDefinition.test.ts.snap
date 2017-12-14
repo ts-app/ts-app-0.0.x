@@ -122,7 +122,7 @@ Object {
   },
   "typeDefs": "type Query {
     userIsInRoles(userId: String!, roles: [String]!, group: String): Boolean
-    getGroupsForUser(userId: String, role: String): GetGroupsForUserPayload
+    getGroupsForUser(userId: String!, role: String): GetGroupsForUserPayload
     findRolesWithCursor(q: String, limit: Int, cursor: String): FindRolesWithCursorPayload
     userRoles(userId: String!, group: String): GetRolesForUserPayload
     getUsersInRoles(roles: [String]!, group: String, limit: Int, cursor: String): GetUsersInRolesPayload
