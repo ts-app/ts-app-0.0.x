@@ -1,9 +1,10 @@
 {
   "name": "@ts-app/mongo",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "license": "MIT",
+  "repository": "https://github.com/ts-app/ts-app/tree/master/packages/mongo",
   "publishConfig": {
     "access": "public"
   },
