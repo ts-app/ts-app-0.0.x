@@ -176,7 +176,7 @@ This module can declare dependencies to other schema definitions to combine func
 
 ## Next Step
 
-Try the [tutorial](docs/tutorial.md).
+Try the [tutorial](https://github.com/ts-app/ts-app/blob/master/packages/graphql/docs/tutorial.md).
 
 * Create a Todo service in TypeScript.
 * Expose it as a GraphQL service.
