@@ -8,4 +8,3 @@ lerna bootstrap --hoist
 # test, lint, compile packages
 lerna run lint
 lerna run compile
-lerna run test
