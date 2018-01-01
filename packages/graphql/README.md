@@ -1,12 +1,10 @@
 # @ts-app/graphql
 
+> Create & Serve GraphQL Services with JavaScript Decorators. The goal of this package is to provide a simple mechanism to create, package and reuse GraphQL services from NPM packages.
+
 [![npm version](https://badge.fury.io/js/%40ts-app%2Fgraphql.svg)](https://badge.fury.io/js/%40ts-app%2Fgraphql)
 
-> Create & Serve GraphQL Services with JavaScript Decorators.
-
 `@ts-app/graphql` provides API to create GraphQL services by decorating JavaScript functions as GraphQL resolvers with flexible query input mapping, error handling and authentication/authorization support. It also provides `ts-app-graphql` CLI application to serve GraphQL services defined in compatible NPM packages.
-
-The goal of this package is to provide a simple mechanism to create, package and reuse GraphQL services within NPM packages.
 
 ## Installation
 

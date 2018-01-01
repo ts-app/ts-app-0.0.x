@@ -1,8 +1,8 @@
 # ts-app/security
 
-[![npm version](https://badge.fury.io/js/%40ts-app%2Fsecurity.svg)](https://badge.fury.io/js/%40ts-app%2Fsecurity)
+> Fullstack authentication and user account management for GraphQL applications written with [@ts-app/graphql](https://github.com/ts-app/ts-app/tree/master/packages/graphql).
 
-Fullstack authentication and user account management for GraphQL applications written with [@ts-app/graphql](https://github.com/ts-app/ts-app/tree/master/packages/graphql).
+[![npm version](https://badge.fury.io/js/%40ts-app%2Fsecurity.svg)](https://badge.fury.io/js/%40ts-app%2Fsecurity)
 
 * Secure GraphQL services with JSON Web Token (JWT) authentication. 
 * Authorize access to resolvers based on user roles or custom authorization functions.
