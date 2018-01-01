@@ -1,23 +1,45 @@
 # @ts-app/graphql - Tutorial
 
-If you have not done so, please read [README.md](../README.md) first.
+If you have not done so, please read [README.md](https://github.com/ts-app/ts-app/blob/master/packages/graphql/README.md) first.
 
 In this tutorial, we will:
+
 * Configure a TypeScript project.
 * Create a Todo service.
 * Expose it as a GraphQL service.
 * Learn to reuse schema definition.
 
-The complete source code is available at [graphql-todo](https://github.com/ts-app/graphql-todo).
+Complete source code at [graphql-todo](https://github.com/ts-app/graphql-todo).
 
 ## Pre-requisites
 
-* Node v8. Highly recommend using [NVM](https://github.com/creationix/nvm) to manage your Node/NPM environment.
-* Basic understanding of [GraphQL](http://graphql.org/) concepts.
+* Basic [TypeScript](https://www.typescriptlang.org/index.html). It is a superset of JavaScript with static typing and compiles to standard JavaScript files before being executed.
+* [GraphQL](http://graphql.org/) concepts. Highly recommended to at least go through the [GraphQL tutorial](http://graphql.org/graphql-js/).
 
-## Create Project Directory
+## Project Files
 
-Create directory for our tutorial project:
+This project consist of 3 production code files in `/src`, 1 test file and 5 configuration files for code linting, testing (with Jest) and `package.json` scripts for typical development workflow.
+
+```
+.
+|____jest.config.js
+|____package.json
+|____src
+| |____todo.graphqls
+| |____todoSchemaDefinition.ts
+| |____TodoService.ts
+|____tests
+| |______snapshots__
+| | |____TodoService.test.ts.snap
+| |____TodoService.test.ts
+|____tsconfig-compile.json
+|____tsconfig.json
+|____tslint.json
+```
+
+It was structured to serve as a template for starting projects that use `@ts-app/graphql`.
+
+Begin by creating a directory for the tutorial:
 ```
 mkdir my-todo
 cd my-todo
@@ -48,7 +70,7 @@ Proceed to the next section if you can see this help message.
 
 ## Create TypeScript Project
 
-We will now convert the NPM project to a complete TypeScript project with the following conventions:
+We will now convert the NPM project to a TypeScript project with the following configuration:
 
 * [Strict TypeScript compiler](https://blog.mariusschulz.com/2017/06/09/typescript-2-3-the-strict-compiler-option#strict-type-checking-options) checks via the `--strict` flag.
 * Tests will be written with [Jest](https://facebook.github.io/jest/).
@@ -535,4 +557,4 @@ This demonstrates how schema definitions can be reused.
 
 Securing GraphQL service with [@ts-app/security](https://github.com/ts-app/ts-app/tree/master/packages/security).
 
-This will be covered in a separate tutorial.
+This will be covered the security package's tutorial.

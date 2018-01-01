@@ -6,6 +6,17 @@ import { ResolverAuth } from './ResolverAuth'
 let logError: (message?: any, ...optionalParams: any[]) => void = console.error
 let _INSTANCE: ResolverService
 
+/**
+ * ResolverService is the core class that enables functions annotated with @Resolver() to work as
+ * GraphQL resolvers.
+ *
+ * It is a singleton class where:
+ * - Resolver() decorated functions are registered.
+ * - All service classes with @Resolver() decorated functions must be are registered.
+ * - Before/Afterwares can be registered to manage GraphQL queries from a centralized function.
+ * - Graphql resolver functions are generated based on ResolverService's state.
+ *
+ */
 export class ResolverService {
   private _serviceRegistry: {
     [className: string]: {

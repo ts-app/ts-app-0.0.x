@@ -3,7 +3,12 @@ import { mergeTypeDefs } from './mergeTypeDefs'
 
 /**
  *
- * Merge schema definitions ....
+ * Merge an array of SchemaDefinition and return IExecutableSchemaDefinition (from Apollo) that can
+ * be used as an input for makeExecutableSchema().
+ *
+ * It extracts contents from schema definition's "dependencies" to be returned as part of the
+ * IExecutableSchemaDefinition. This allows reusing SchemaDefinition when specified as
+ * "dependencies".
  *
  * @param {SchemaDefinition[]} definitions
  * @return {{typeDefs: string; resolvers: {Query: {}; Mutation: {}}}}

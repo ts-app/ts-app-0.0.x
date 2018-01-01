@@ -122,6 +122,10 @@ const mergeRootType = (mainTypeDef: string, typeDefs: string[], rootType: 'Query
   return merged
 }
 
+/**
+ * Merge an array of type definition strings. This function allows "Query" and "Mutation" root types
+ * to be repeated - by appending contents of such repeated root types.
+ */
 export const mergeTypeDefs = (typeDefs: string[]): string => {
   const first = typeDefs.shift() as string
 

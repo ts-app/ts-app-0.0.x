@@ -6,6 +6,8 @@
 
 `@ts-app/graphql` provides API to create GraphQL services by decorating JavaScript functions as GraphQL resolvers with flexible query input mapping, error handling and authentication/authorization support. It also provides `ts-app-graphql` CLI application to serve GraphQL services defined in compatible NPM packages.
 
+The goal of this package is to provide a simple mechanism to create, package and reuse GraphQL services within NPM packages.
+
 ## Installation
 
 Add these dependencies to a new NPM project.
@@ -176,7 +178,7 @@ This module can declare dependencies to other schema definitions to combine func
 
 ## Next Step
 
-Try the [tutorial](https://github.com/ts-app/ts-app/blob/master/packages/graphql/docs/tutorial.md).
+Try the [@ts-app/graphql - Tutorial](https://github.com/ts-app/ts-app/blob/master/packages/graphql/docs/tutorial.md).
 
 * Create a Todo service in TypeScript.
 * Expose it as a GraphQL service.

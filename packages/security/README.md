@@ -32,6 +32,7 @@ updateTodo ({ id, title, ownerId }: { id: string, title: string, ownerId: string
 * [accounts-js](https://github.com/accounts-js/accounts). Server side goals are similar. `accounts-js` is probably more complete as it covers both server and client side. For now, `@ts-app/security`'s scope is only providing server side GraphQL support.
 * [roles-npm](https://github.com/alanning/roles-npm) and [meteor-roles](https://github.com/alanning/meteor-roles). `RoleService` and the Mongo implementation `MongoRoleService` was translated very closely based on these packages with added static typing support. 
 
-## Tutorial
 
-TODO: ...
+## Next Step
+
+Try the [@ts-app/security - Tutorial](https://github.com/ts-app/ts-app/blob/master/packages/security/docs/tutorial.md).
