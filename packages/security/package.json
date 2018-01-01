@@ -1,6 +1,6 @@
 {
   "name": "@ts-app/security",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "license": "MIT",
@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "@ts-app/common": "^0.0.4",
-    "@ts-app/graphql": "^0.0.5",
+    "@ts-app/graphql": "^0.0.6",
     "@ts-app/mongo": "^0.0.4",
     "bcryptjs": "^2.4.3",
     "graphql-tag": "^2.5.0",

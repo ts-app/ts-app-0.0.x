@@ -1,6 +1,6 @@
 {
   "name": "@ts-app/server-bom",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "license": "MIT",
   "repository": "https://github.com/ts-app/ts-app/tree/master/packages/server-bom",
   "publishConfig": {
