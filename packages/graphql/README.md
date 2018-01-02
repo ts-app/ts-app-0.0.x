@@ -60,6 +60,7 @@ INFO: Server started [33ms]
 Start GraphQL server with:
 * API endpoint at `http://localhost:3000/graphql`. The schema definition `demoSchemaDefinition` is an exported module from `@ts-app/graphql`.
 * The [GraphiQL](https://github.com/graphql/graphiql) IDE for GraphQL is exposed at `/graphql-ui`.
+
   * You can execute queries against the GraphQL server via an integrated development environment that supports auto-completion.
   * [GraphQL Voyager](https://github.com/APIs-guru/graphql-voyager) interactive graphs for the schema's Queries and Mutations are exposed at `graphql-diagram/Query` and `graphql-diagram/Mutation` respectively.
 
