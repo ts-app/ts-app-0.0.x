@@ -61,8 +61,9 @@ Start GraphQL server with:
 * API endpoint at `http://localhost:3000/graphql`. The schema definition `demoSchemaDefinition` is an exported module from `@ts-app/graphql`.
 * The [GraphiQL](https://github.com/graphql/graphiql) IDE for GraphQL is exposed at `/graphql-ui`.
   * You can execute queries against the GraphQL server via an integrated development environment that supports auto-completion.
-  * [GraphQL Voyager](https://github.com/APIs-guru/graphql-voyager) interactive graphs for the schema's Queries and Mutations are exposed at `graphql-diagram/Query` and `graphql-diagram/Mutation` respectively. 
-* List of queries and mutations supported by the current schema definition (Red color indicates that a resolver does not exist for the type)
+  * [GraphQL Voyager](https://github.com/APIs-guru/graphql-voyager) interactive graphs for the schema's Queries and Mutations are exposed at `graphql-diagram/Query` and `graphql-diagram/Mutation` respectively.
+
+* List of queries and mutations supported by the current schema definition.
 
 If you are new to GraphiQL or GraphQL Voyager, take a few minutes to see how these tools work. Execute the demo mutations and queries. You may want to cross reference this GraphQL service's capabilities against [DemoService.ts](https://github.com/ts-app/ts-app/blob/master/packages/graphql/src/DemoService.ts) that provides the resolvers.
 
