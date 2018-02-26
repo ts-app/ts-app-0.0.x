@@ -68,3 +68,9 @@ type Mutation {
 }
 ```
 
+## Why so many tsconfig.json?
+
+* tsconfig.json - The main tsconfig.json file where configuration are specified. 
+* packages/*/config/tsconfig-compile.json - Extends from base tsconfig.json to specify production build compilation settings.
+* packages/*/config/ts-config-test.json - Extends from base tsconfig.json to specify test specific compilation settings.
+* packages/*/tsconfig.json - Used by typedoc because I cannot find a way to specify the file directly.
